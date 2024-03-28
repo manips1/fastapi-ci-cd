@@ -27,4 +27,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Run Container
-        run: docker run -d -p 8080:8000 --restart=always --name ~~
+        run: docker run -d -p 8080:8000 --restart=always --name test test
