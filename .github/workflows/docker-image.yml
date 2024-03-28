@@ -26,5 +26,11 @@ jobs:
     name: Deploy
     runs-on: self-hosted
     steps:
+      - name: Stop existing container
+        run: docker stop test || true # "|| true" to ignore errors if the container does not exist
+
+      - name: Remove existing container
+        run: docker rm test || true # "|| true" to ignore errors if the container does not exist
+
       - name: Run Container
-        run: docker run -d -p 8080:8000 --restart=always --name ~~
+        run: docker run -d -p 8080:8000 --restart=always --name test test
